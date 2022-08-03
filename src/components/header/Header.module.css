@@ -1,0 +1,28 @@
+.header{
+    width: 200px;
+    min-height: 100vh;
+    background: rgb(87, 87, 87);
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+    box-sizing: border-box;
+    padding: 20px;
+}
+
+.headerMenu{
+    display: flex;
+    flex-direction: column;
+    row-gap: 20px;
+
+}
+
+.headerMenu li, a {
+    list-style: none;
+    color: aliceblue;
+    text-decoration: none;
+    transition: 400ms;
+}
+
+.headerMenu a:hover {
+    text-shadow: 0 0 10px aliceblue;
+    transition: 400ms;
+}

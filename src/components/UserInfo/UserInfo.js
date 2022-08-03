@@ -5,9 +5,7 @@ const UserInfo = () => {
         <div className={css.userBlock}>
             <div className={css.userCircle}></div>
             <div>
-                <h3>
-                    Some name
-                </h3>
+                SomeName
             </div>
         </div>
     )
