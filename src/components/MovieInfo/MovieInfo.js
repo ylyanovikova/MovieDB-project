@@ -1,7 +1,12 @@
+import { useLocation } from "react-router-dom";
+
 const MovieInfo = () => {
+    const { state } = useLocation();
+    const { movie, posterImg } = state;
+
     return (
         <div>
-            movieinfo
+            <img src={posterImg} alt={movie.title}/>
         </div>
     )
 };

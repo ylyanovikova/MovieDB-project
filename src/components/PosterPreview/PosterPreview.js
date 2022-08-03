@@ -1,7 +1,10 @@
 import { useState } from "react";
 import { useEffect } from "react";
+import { NavLink } from "react-router-dom";
 
-const PosterPreview = ({ poster, title }) => {
+import css from "./PosterPreview.module.css";
+
+const PosterPreview = ({ poster, title, movie }) => {
 
     const [posterImg, setPosterImg] = useState(null)
     useEffect(() => {
@@ -10,8 +13,11 @@ const PosterPreview = ({ poster, title }) => {
 
 
     return (
-        <div>
-            {posterImg && <img src={posterImg} alt={title} />}
+        <div className={css.poster}>
+            <NavLink to={`/movie-info/${movie.id}`} state={{movie, posterImg}}>
+                {posterImg && <img src={posterImg} alt={title} />}
+            </NavLink>
+            <b>{title}</b>
         </div>
     )
 };
