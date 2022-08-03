@@ -6,3 +6,4 @@ export * from "./Header/Header";
 export * from "./MovieCard/MoviesListCard";
 export * from "./MoviesList/MoviesList";
 export * from "./StarsRating/StarsRating";
+export * from "./Loading/Loading";
