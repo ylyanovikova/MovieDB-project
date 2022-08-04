@@ -1,0 +1,16 @@
+.badge{
+    width: 120px;
+    height: 25px;
+    border: 1px solid rgb(86, 85, 85);
+    border-radius: 20px;
+    background: rgb(86, 85, 85);
+    color: aliceblue;
+    text-align: center;
+}
+
+a[class='active'] div{
+    box-shadow: 0 0 20px rgb(86, 85, 85);
+    background: aliceblue;
+    color: rgb(86, 85, 85);
+    transition: 300ms;
+}

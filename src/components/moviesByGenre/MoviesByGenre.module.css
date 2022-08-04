@@ -30,6 +30,3 @@
     cursor: pointer;
     border-color: aliceblue;
 }
-.navButtons::selection{
-    scroll-behavior: smooth;
-}

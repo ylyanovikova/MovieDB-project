@@ -1,8 +1,9 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { urls } from "../../constants/urls";
-import { genresActions, genresReducer } from "../../redux";
-import { axiosService } from "../../services";
+
+import { genresActions } from "../../redux";
+import { Genre } from "../Genre/Genre";
+import css from "./GenreBadge.module.css";
 
 const GenreBadge = ({ genresIds }) => {
 
@@ -10,27 +11,15 @@ const GenreBadge = ({ genresIds }) => {
     const dispatch = useDispatch();
 
     useEffect(() => {
-
         dispatch(genresActions.getAll());
-        
-
-
-
-        // const {data} = await axiosService.get(urls.genres, {
-        //     params: {
-        //         api_key: "153892ef2476182cf4542acf7b04fb32"
-        //     }
-        // }).then(value => value)
-        // console.log(data);
-        // return data;
-
-        // getGenres()
     }, [dispatch]);
 
-    // console.log(genres);
+    const movieGenres = [];
+    genresIds.forEach(id => genres.filter((genre) => { if (genre.id === id) { movieGenres.push(genre) } }));
+
     return (
-        <div>
-            badge
+        <div className={css.badgeContainer}>
+            {movieGenres.map(genre => <Genre genre={genre} key={genre.id} />)}
         </div>
     )
 };

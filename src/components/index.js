@@ -7,3 +7,6 @@ export * from "./MovieCard/MoviesListCard";
 export * from "./MoviesList/MoviesList";
 export * from "./StarsRating/StarsRating";
 export * from "./Loading/Loading";
+export * from "./Genre/Genre";
+export * from "./moviesByGenre/MoviesByGenre";
+export * from "./ThemeSwitcher/ThemeSwitcher";

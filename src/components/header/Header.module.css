@@ -26,13 +26,24 @@
     text-shadow: 0 0 10px aliceblue;
     transition: 400ms;
 }
-a[class='active'] {
+.headerMenu a[class='active'] {
     display: block;
-    width: 155px;
     height: 38px;
     border-radius: 20px;
     color: rgb(86, 85, 85);
     padding-left: 5px;
     background: white;
     transition: 300ms;
+    width: 135px;
+    border-top-right-radius: 0px;
+    border-bottom-right-radius: 0px;
+}
+
+ .headerMenu, .dark >a[class='active']{
+    background: rgb(86, 85, 85);
+    color: white;
+}
+
+.headerMenu[class = "dark"]{
+    background-color: aquamarine;
 }

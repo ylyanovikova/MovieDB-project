@@ -1,21 +1,21 @@
 import { useEffect } from "react";
-import { useDispatch } from "react-redux";
-import { useSelector } from "react-redux";
+import { useState } from "react";
+import { useParams } from "react-router-dom";
 import { useSearchParams } from "react-router-dom";
 
-import { moviesActions } from "../../redux";
+import { moviesService } from "../../services";
 import { Loading } from "../Loading/Loading";
 import { MoviesListCard } from "../MovieCard/MoviesListCard";
-import css from "./MoviesList.module.css";
+import css from "./MoviesByGenre.module.css";
 
-const MoviesList = () => {
-    const { movies } = useSelector(store => store.moviesReducer);
-    const dispatch = useDispatch();
+const MoviesByGenre = () => {
+    const [movies, setMovies] = useState([]);
+    const { id } = useParams();
     const [query, setQuery] = useSearchParams({ page: 1 });
 
     useEffect(() => {
-        dispatch(moviesActions.getAll({ page: query.get('page') }));
-    }, [dispatch, query]);
+        moviesService.getMoviesByGenres(id, { page: query.get('page') }).then(({ data }) => setMovies(data.results));
+    }, [id, query]);
 
     const nextPage = () => {
         const queryObj = Object.fromEntries(query.entries());
@@ -26,20 +26,20 @@ const MoviesList = () => {
     const prevPage = () => {
         const queryObj = Object.fromEntries(query.entries());
         queryObj.page--;
-        setQuery(queryObj);
+        setQuery(queryObj)
     }
 
     return (
-        <div id="top">
+        <div>
             <div className={css.movieCards}>
                 {movies ? movies.map(movie => <MoviesListCard key={movie.id} movie={movie} />) : <Loading />}
             </div>
             <div className={css.navButtons}>
                 <button onClick={() => prevPage()}>Previous page</button>
-                <a href="#top"><button onClick={() => nextPage()}>Next page</button></a>
+                <button onClick={() => nextPage()}>Next page</button>
             </div>
         </div>
     )
-};
+}
 
-export { MoviesList }
+export { MoviesByGenre }
