@@ -1,8 +1,8 @@
-.genres{
+.genresStyle{
     display: flex;
+    width: 100%;
     flex-wrap: wrap;
     height: 300px;
-    /* flex-direction: column; */
     column-gap: 20px; 
     row-gap: 0;
     align-items: center;
@@ -12,7 +12,7 @@
     padding: 30px;
 }
 
-.genres div{
+.genresStyle div{
     height: 50px;
     display: flex;
     align-items: center;

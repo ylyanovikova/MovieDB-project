@@ -1,0 +1,33 @@
+.dark a[class = "active" ] {
+    background: grey;
+    color: aliceblue;
+}
+
+.dark{
+    width: 200px;
+    min-height: 100vh;
+    background: rgb(222, 224, 225);
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+    box-sizing: border-box;
+    padding: 20px;
+    border: 1px solid rgb(86, 85, 85);
+    color: rgb(36, 35, 35);
+}
+
+.dark a{
+    color: rgb(66, 65, 65);
+}
+
+.dark a:hover {
+    text-shadow: 0 0 10px rgb(139, 140, 141);
+}
+
+.dark > div{
+    color: rgb(53, 53, 53);
+}
+
+.dark>div>div.UserInfo_userCircle__XLMNS{
+    border-color: rgb(139, 140, 141);
+    box-shadow: 0 0 10px rgb(139, 140, 141);
+}

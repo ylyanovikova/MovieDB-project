@@ -19,14 +19,22 @@ const MoviesList = () => {
 
     const nextPage = () => {
         const queryObj = Object.fromEntries(query.entries());
-        queryObj.page++;
+        if (queryObj.page < 500) {
+            queryObj.page++;
+        } else {
+            queryObj.page = 1;
+        }
         setQuery(queryObj)
     };
 
     const prevPage = () => {
         const queryObj = Object.fromEntries(query.entries());
-        queryObj.page--;
-        setQuery(queryObj);
+        if (queryObj.page > 1) {
+            queryObj.page--;
+        } else {
+            queryObj.page = 500;
+        }
+        setQuery(queryObj)
     }
 
     return (
@@ -35,7 +43,7 @@ const MoviesList = () => {
                 {movies ? movies.map(movie => <MoviesListCard key={movie.id} movie={movie} />) : <Loading />}
             </div>
             <div className={css.navButtons}>
-                <button onClick={() => prevPage()}>Previous page</button>
+                <a href="#top"><button onClick={() => prevPage()}>Previous page</button></a>
                 <a href="#top"><button onClick={() => nextPage()}>Next page</button></a>
             </div>
         </div>

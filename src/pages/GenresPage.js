@@ -19,8 +19,8 @@ const GenresPage = () => {
 
     return (
         <div>
-                <div className={css.genres}>
-                    {genres.map(genre => <Genre key={genre.id} genre={genre} />)}
+                <div className={css.genresStyle}>
+                    {genres && genres.map(genre => <Genre key={genre.id} genre={genre} />)}
                 </div>
             <Outlet />
         </div>

@@ -8,7 +8,6 @@ const initialState = {
 const getAll = createAsyncThunk(
     "moviesSlice/getAll",
     async ({page}) => {
-        console.log(page);
         const { data } = await moviesService.getAll(page);
         return data.results;
     }
