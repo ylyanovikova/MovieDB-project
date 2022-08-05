@@ -10,3 +10,5 @@ export * from "./Loading/Loading";
 export * from "./Genre/Genre";
 export * from "./moviesByGenre/MoviesByGenre";
 export * from "./ThemeSwitcher/ThemeSwitcher";
+export * from "./SearchForm/SearchForm";
+export * from "./SearchList/SearchList";

@@ -10,7 +10,11 @@
 
 a[class='active'] div{
     box-shadow: 0 0 20px rgb(86, 85, 85);
-    background: aliceblue;
+    background: white;
     color: rgb(86, 85, 85);
     transition: 300ms;
+}
+
+a:hover{
+    text-shadow: 0 0 10px aliceblue;
 }

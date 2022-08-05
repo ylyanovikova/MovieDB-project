@@ -2,7 +2,7 @@ import { Fragment } from 'react';
 import { Routes, Route, Navigate } from 'react-router-dom';
 
 import './App.css';
-import { MovieInfo, MoviesByGenre, MoviesList } from './components';
+import { MovieInfo, MoviesByGenre, MoviesList, SearchList } from './components';
 import { MainLayout } from './layouts/MainLayout';
 import { ActorsPage, GenresPage, HomePage, MoviesPage } from './pages';
 
@@ -12,7 +12,9 @@ function App() {
       <Routes>
         <Route path={'/'} element={<MainLayout />}>
           <Route index element={<Navigate to={"home"} />} />
-          <Route path={'home'} element={<HomePage />} />
+          <Route path={'home'} element={<HomePage />} >
+            <Route path='searchList' element={<SearchList/>}/>
+          </Route>
           <Route path={'movies'} element={<MoviesPage />} />
           <Route path={'genres'} element={<GenresPage />} >
             <Route path=':id' element={<MoviesByGenre />} />

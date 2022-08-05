@@ -8,7 +8,7 @@ const moviesService = {
             api_key: "153892ef2476182cf4542acf7b04fb32"
         }
     }),
-    getById: (id) => axiosService.get(`${urls.movies}/${id}`, {
+    getById: (id) => axiosService.get(`${urls.movie}/${id}`, {
         params: {
             api_key: "153892ef2476182cf4542acf7b04fb32"
         }

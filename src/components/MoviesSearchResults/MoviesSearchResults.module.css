@@ -1,0 +1,35 @@
+.movieCards{
+    display: flex;
+    flex-wrap: wrap;
+    box-sizing: border-box;
+    padding: 50px;
+    justify-content: center;
+    row-gap: 30px;
+    column-gap: 30px;
+}
+
+.navButtons{
+    display: flex;
+    justify-content: space-between;
+    margin: 10px 80px;
+}
+
+.navButtons button{
+    width: 200px;
+    height: 30px;
+    background: rgb(86, 85, 85);
+    color: aliceblue;
+    border: 1px solid rgb(86, 85, 85);
+    border-radius: 20px;
+    transition: 300ms;
+}
+
+.navButtons button:hover{
+    box-shadow: 0 0 10px rgb(86, 85, 85);
+    transition: 300ms;
+    cursor: pointer;
+    border-color: aliceblue;
+}
+.navButtons::selection{
+    scroll-behavior: smooth;
+}
