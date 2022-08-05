@@ -11,10 +11,9 @@ const PosterPreview = ({ poster, title, movie }) => {
         fetch(`https://image.tmdb.org/t/p/w500${poster}`).then(data => setPosterImg(data.url));
     }, []);
 
-
     return (
         <div className={css.poster}>
-            <NavLink to={`/movie-info/${movie.id}`} state={{movie, posterImg}}>
+            <NavLink to={`/movie-info/${movie.id}`} state={{ movie, posterImg }}>
                 {posterImg && <img src={posterImg} alt={title} />}
             </NavLink>
             <b>{title}</b>

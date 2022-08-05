@@ -10,7 +10,7 @@ import store from './redux/store';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 export const MyContext = createContext(null);
-const style = "light"; 
+const style = "light";
 
 root.render(
   <MyContext.Provider value={style}>

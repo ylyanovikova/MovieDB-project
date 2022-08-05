@@ -4,26 +4,25 @@ import styled, { keyframes } from 'styled-components';
 import css from "./Loading.module.css";
 
 const commonStyle = {
-    margin: 'auto',
-    position: 'relative',
-    left: 'calc(50vw - 200px)',
-    right: 0,
-    top: '50vh',
-    bottom: 0
+  margin: 'auto',
+  position: 'relative',
+  left: 'calc(50vw - 200px)',
+  right: 0,
+  top: '50vh',
+  bottom: 0
 };
 
 const sizeItem = {
-    small: '10px',
-    default: '12px',
-    large: '24px'
+  small: '10px',
+  default: '12px',
+  large: '24px'
 }
 
 const sizeContainer = {
-    small: '24px',
-    default: '30px',
-    large: '36px'
+  small: '24px',
+  default: '30px',
+  large: '36px'
 }
-
 
 const rollOne = keyframes`
   0%,
@@ -83,7 +82,6 @@ const moveLeft = keyframes`
   }
 `
 
-
 const LoadContainer = styled.div`
   width: ${props => sizeContainer[props.size] || sizeContainer['default']};
   height: ${props => sizeContainer[props.size] || sizeContainer['default']};
@@ -124,15 +122,15 @@ const RollBoxMove = styled.div`
 `
 
 const Loading = ({ style = commonStyle, color = "gray", speed, size = 'large' }) => {
-    return (
-        <div >
-            <LoadContainer style={style} size={size} className={css.loading}>
-                <RollBoxOne size={size} color={color} speed={speed} />
-                <RollBoxTwo size={size} color={color} speed={speed} />
-                <RollBoxMove size={size} color={color} speed={speed} />
-            </LoadContainer>
-        </div>
-    );
+  return (
+    <div >
+      <LoadContainer style={style} size={size} className={css.loading}>
+        <RollBoxOne size={size} color={color} speed={speed} />
+        <RollBoxTwo size={size} color={color} speed={speed} />
+        <RollBoxMove size={size} color={color} speed={speed} />
+      </LoadContainer>
+    </div>
+  );
 };
 
 export { Loading }

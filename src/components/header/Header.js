@@ -5,8 +5,6 @@ import { UserInfo } from "../UserInfo/UserInfo";
 import css from "./Header.module.css";
 import "./style.css";
 
-
-
 const Header = () => {
     return (
         <div className={css.header} id="menu">
@@ -17,7 +15,7 @@ const Header = () => {
                 <li><NavLink to="genres">Genres</NavLink></li>
                 <li><NavLink to="actors">Actors</NavLink></li>
             </ul>
-            <div style={{display: "flex", color: "silver"}}>
+            <div style={{ display: "flex", color: "silver" }}>
                 <div>Switch theme</div>
                 <ThemeSwitcher />
             </div>

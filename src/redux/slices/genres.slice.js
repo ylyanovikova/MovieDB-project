@@ -1,7 +1,6 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 
-import { urls } from "../../constants/urls";
-import { axiosService, genresService} from "../../services";
+import { genresService } from "../../services";
 
 const initialState = {
     genres: []
@@ -9,21 +8,11 @@ const initialState = {
 
 const getAll = createAsyncThunk(
     "genresSlice/getAll",
-    async() => {
-        // const data = await axiosService.get(urls.genres,
-        //     {
-        //         params: {
-        //             api_key: "153892ef2476182cf4542acf7b04fb32"
-        //         }
-        //     }
-        // ).then(({data}) => data.genres);
-        // return data;
-
-        const {data} = await genresService.getAll();
+    async () => {
+        const { data } = await genresService.getAll();
         return data.genres;
     }
 )
-
 
 const genresSlice = createSlice({
     name: "genresSlice",
@@ -34,17 +23,14 @@ const genresSlice = createSlice({
         builder
             .addCase(getAll.fulfilled, (state, action) => {
                 state.genres = action.payload;
-                // console.log(state.genres);
             })
     }
-}
-);
+});
 
-const { reducer: genresReducer, actions:{} } = genresSlice;
+const { reducer: genresReducer } = genresSlice;
 
 const genresActions = {
-    getAll,
-
+    getAll
 };
 
 export {

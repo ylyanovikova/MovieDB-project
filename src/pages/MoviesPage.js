@@ -3,7 +3,7 @@ import { MoviesList } from "../components";
 const MoviesPage = () => {
     return (
         <div>
-            <MoviesList/>
+            <MoviesList />
         </div>
     )
 };

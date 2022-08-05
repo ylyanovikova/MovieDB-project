@@ -1,28 +1,30 @@
 import { useState } from "react";
 import { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { useLocation, useParams } from "react-router-dom";
-import { moviesService } from "../../services";
-import { GenreBadge } from "../GenreBadge/GenreBadge";
-import { StarRating } from "../StarsRating/StarsRating";
 
+import { moviesActions } from "../../redux";
+import { GenreBadge, StarRating } from "../../components";
 import css from "./MovieInfo.module.css";
 
 const MovieInfo = () => {
+    const { mov } = useSelector(state => state.moviesReducer)
     const { state } = useLocation();
+    const dispatch = useDispatch();
     const { movie, posterImg } = state;
     const { id } = useParams();
-
-    const [chosenMovie, setChosenMovie] = useState(movie);
+    const [chosenMovie, setChosenMovie] = useState(movie || null);
 
     useEffect(() => {
-        if (movie) {
-            setChosenMovie(movie)
+        if (state) {
+            setChosenMovie(movie);
         } else {
-            moviesService.getById(id).then(value => setChosenMovie(value))
+            dispatch(moviesActions.getById({ id }));
+            setChosenMovie(mov);
         }
     }, [id]);
 
-    const {title, vote_average, vote_count, genre_ids, overview, release_date} = chosenMovie;
+    const { title, vote_average, vote_count, genre_ids, overview, release_date } = chosenMovie;
 
     return (
         <div className={css.movieInfoContainer}>
@@ -45,4 +47,5 @@ const MovieInfo = () => {
         </div>
     )
 };
+
 export { MovieInfo }

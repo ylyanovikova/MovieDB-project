@@ -27,6 +27,7 @@
     text-shadow: 0 0 10px aliceblue;
     transition: 400ms;
 }
+
 .headerMenu a[class='active'] {
     display: block;
     border-radius: 20px;

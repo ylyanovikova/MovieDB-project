@@ -1,11 +1,11 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
-import { act } from "@testing-library/react";
+
 import { moviesService } from "../../services";
 
 const initialState = {
     movies: [],
     searchResults: [],
-    data: []
+    mov: null
 };
 
 const getAll = createAsyncThunk(
@@ -16,14 +16,21 @@ const getAll = createAsyncThunk(
     }
 );
 
-const addResults = createAsyncThunk(
-    "moviesSlice/addResults",
-    async({movies})=>{
-        const data = await {movies};
+const getById = createAsyncThunk(
+    "moviesSlice/getById",
+    async ({ id }) => {
+        const { data } = await moviesService.getById(id);
         return data
     }
 )
 
+const addResults = createAsyncThunk(
+    "moviesSlice/addResults",
+    async ({ movies }) => {
+        const data = await { movies };
+        return data
+    }
+)
 
 const movieSlice = createSlice({
     name: "moviesSlice",
@@ -35,18 +42,21 @@ const movieSlice = createSlice({
             .addCase(getAll.fulfilled, (state, action) => {
                 state.movies = action.payload;
             })
-            .addCase(addResults.fulfilled, (state,action)=>{
+            .addCase(addResults.fulfilled, (state, action) => {
                 state.searchResults = action.payload.movies;
             })
+            .addCase(getById.fulfilled, (state, action) =>
+                state.mov = action.payload
+            )
     }
 });
 
-const { reducer: moviesReducer, actions: {  } } = movieSlice;
+const { reducer: moviesReducer, actions: { } } = movieSlice;
 
 const moviesActions = {
     getAll,
-    addResults
-    //  getById
+    addResults,
+    getById
 
 };
 export { moviesReducer, moviesActions }

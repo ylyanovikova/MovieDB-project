@@ -7,7 +7,7 @@
     border-radius: 20px;
 }
 
- b{
+b{
     position: relative;
     bottom: 20.5%;
     text-align: center;
@@ -27,6 +27,5 @@
 
 .poster a:hover +  b{
     visibility: visible;
-    /* display: block; */
     transition: 400ms;
 }
