@@ -39,3 +39,10 @@
     border-top-right-radius: 0px;
     border-bottom-right-radius: 0px;
 }
+
+.switcher{
+    display: flex;
+    color: silver;
+    align-items: center;
+    justify-content: space-between;
+}

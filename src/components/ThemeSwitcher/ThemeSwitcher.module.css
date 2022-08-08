@@ -16,6 +16,7 @@
     position: relative;
     transition: background-color .2s;
   }
+
   
   .reactSwitchLabel .reactSwitchButton {
     content: '';
@@ -39,4 +40,9 @@
   .reactSwitchLabel:active .reactSwitchButton {
     width: 60px;
     background-color: aliceblue;
+  }
+
+  .switcher{
+    display: flex;
+    align-items: center;
   }

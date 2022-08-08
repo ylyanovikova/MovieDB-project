@@ -37,17 +37,24 @@ const MoviesList = () => {
         setQuery(queryObj)
     }
 
-    return (
-        <div id="top">
-            <div className={css.movieCards}>
-                {movies ? movies.map(movie => <MoviesListCard key={movie.id} movie={movie} />) : <Loading />}
+    if (movies) {
+        return (
+            <div id="top">
+                <div className={css.movieCards}>
+                    {movies.map(movie => <MoviesListCard key={movie.id} movie={movie} />)}
+                </div>
+                <div className={css.navButtons}>
+                    <a href="#top"><button onClick={() => prevPage()}>Previous page</button></a>
+                    <a href="#top"><button onClick={() => nextPage()}>Next page</button></a>
+                </div>
             </div>
-            <div className={css.navButtons}>
-                <a href="#top"><button onClick={() => prevPage()}>Previous page</button></a>
-                <a href="#top"><button onClick={() => nextPage()}>Next page</button></a>
-            </div>
-        </div>
-    )
+        )
+    } else {
+        return (
+            <Loading />
+        )
+    }
+
 };
 
 export { MoviesList }

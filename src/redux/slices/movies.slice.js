@@ -1,11 +1,13 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
+// import { current } from "@reduxjs/toolkit";
 
 import { moviesService } from "../../services";
 
 const initialState = {
     movies: [],
     searchResults: [],
-    mov: null
+    movieById: null,
+    popular: []
 };
 
 const getAll = createAsyncThunk(
@@ -32,6 +34,14 @@ const addResults = createAsyncThunk(
     }
 )
 
+const getPopularMovies = createAsyncThunk(
+    "moviesSlice/getPopularMovies",
+    async () => {
+        const { data } = await moviesService.getPopularMovies();
+        return data.results
+    }
+)
+
 const movieSlice = createSlice({
     name: "moviesSlice",
     initialState,
@@ -45,9 +55,12 @@ const movieSlice = createSlice({
             .addCase(addResults.fulfilled, (state, action) => {
                 state.searchResults = action.payload.movies;
             })
-            .addCase(getById.fulfilled, (state, action) =>
-                state.mov = action.payload
-            )
+            .addCase(getById.fulfilled, (state, action) => {
+                state.movieById = action.payload
+            })
+            .addCase(getPopularMovies.fulfilled, (state, action) => {
+                state.popular = action.payload;
+            })
     }
 });
 
@@ -56,7 +69,8 @@ const { reducer: moviesReducer, actions: { } } = movieSlice;
 const moviesActions = {
     getAll,
     addResults,
-    getById
+    getById,
+    getPopularMovies
 
 };
 export { moviesReducer, moviesActions }

@@ -20,7 +20,11 @@ const moviesService = {
             with_genres,
             page
         }
-
+    }),
+    getPopularMovies: () => axiosService.get(`${urls.movie}/popular`, {
+        params: {
+            api_key: "153892ef2476182cf4542acf7b04fb32"
+        }
     })
 };
 

@@ -37,17 +37,23 @@ const MoviesByGenre = () => {
         setQuery(queryObj)
     }
 
-    return (
-        <div id="topToGenres">
-            <div className={css.movieCards}>
-                {movies ? movies.map(movie => <MoviesListCard key={movie.id} movie={movie} />) : <Loading />}
+    if(movies){
+        return (
+            <div id="topToGenres">
+                <div className={css.movieCards}>
+                    {movies.map(movie => <MoviesListCard key={movie.id} movie={movie} />)}
+                </div>
+                <div className={css.navButtons}>
+                    <a href="#topToGenres"><button onClick={() => prevPage()}>Previous page</button></a>
+                    <a href="#topToGenres"><button onClick={() => nextPage()}>Next page</button></a>
+                </div>
             </div>
-            <div className={css.navButtons}>
-                <a href="#topToGenres"><button onClick={() => prevPage()}>Previous page</button></a>
-                <a href="#topToGenres"><button onClick={() => nextPage()}>Next page</button></a>
-            </div>
-        </div>
-    )
+        )
+    }else{
+        return(
+            <Loading/>
+        )
+    }
 }
 
 export { MoviesByGenre }

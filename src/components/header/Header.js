@@ -13,9 +13,9 @@ const Header = () => {
                 <li><NavLink to="home">Home</NavLink></li>
                 <li><NavLink to="movies">Movies</NavLink></li>
                 <li><NavLink to="genres">Genres</NavLink></li>
-                <li><NavLink to="actors">Actors</NavLink></li>
+                <li><NavLink to="popular">Popular</NavLink></li>
             </ul>
-            <div style={{ display: "flex", color: "silver" }}>
+            <div className={css.switcher}>
                 <div>Switch theme</div>
                 <ThemeSwitcher />
             </div>

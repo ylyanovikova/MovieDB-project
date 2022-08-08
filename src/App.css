@@ -1,3 +1,7 @@
+*{
+    scroll-behavior: smooth;
+}
+
 .darkTheme {
     background: grey;
     color: rgb(47, 46, 46);

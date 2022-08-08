@@ -9,10 +9,10 @@ import css from "./MovieInfo.module.css";
 
 const MovieInfo = () => {
     const { mov } = useSelector(state => state.moviesReducer)
+    const { id } = useParams();
     const { state } = useLocation();
     const dispatch = useDispatch();
     const { movie, posterImg } = state;
-    const { id } = useParams();
     const [chosenMovie, setChosenMovie] = useState(movie || null);
 
     useEffect(() => {

@@ -24,7 +24,7 @@ const ThemeSwitcher = () => {
     }
   }
   return (
-    <>
+    <div className={css.switcher}>
       <input onChange={() => themeChange()}
         className={css.reactSwitchCheckbox}
         id={`reactSwitchNew`}
@@ -36,7 +36,7 @@ const ThemeSwitcher = () => {
       >
         <span className={css.reactSwitchButton} />
       </label>
-    </>
+    </div>
   );
 };
 

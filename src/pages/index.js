@@ -1,4 +1,4 @@
 export * from "./MoviesPage";
-export * from "./ActorsPage";
+export * from "./PopularPage";
 export * from "./GenresPage";
 export * from "./HomePage"
