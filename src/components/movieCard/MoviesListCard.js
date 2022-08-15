@@ -4,7 +4,7 @@ import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 
-import { PosterPreview, Loading } from "../../components";
+import { PosterPreview, Loading } from "..";
 import { moviesActions } from "../../redux";
 import css from './MovieListCard.module.css';
 
