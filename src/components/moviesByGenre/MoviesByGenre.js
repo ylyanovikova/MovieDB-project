@@ -5,7 +5,7 @@ import { useSearchParams } from "react-router-dom";
 
 import { moviesService } from "../../services";
 import { Loading } from "../Loading/Loading";
-import { MoviesListCard } from "../movieCard8/MoviesListCard";
+import { MoviesListCard } from "../MovieCard/MoviesListCard";
 import css from "./MoviesByGenre.module.css";
 
 const MoviesByGenre = () => {

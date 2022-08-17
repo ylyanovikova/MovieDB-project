@@ -3,7 +3,7 @@ import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
 
 import { moviesActions } from "../../redux";
-import { MoviesListCard } from "../movieCard8/MoviesListCard";
+import { MoviesListCard } from "../MovieCard/MoviesListCard";
 import css from "./PopularMovies.module.css";
 
 const PopularMovies = () => {

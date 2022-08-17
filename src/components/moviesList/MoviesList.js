@@ -5,7 +5,7 @@ import { useSearchParams } from "react-router-dom";
 
 import { moviesActions } from "../../redux";
 import { Loading } from "../Loading/Loading";
-import { MoviesListCard } from "../movieCard8/MoviesListCard";
+import { MoviesListCard } from "../MovieCard/MoviesListCard";
 import css from "./MoviesList.module.css";
 
 const MoviesList = () => {
