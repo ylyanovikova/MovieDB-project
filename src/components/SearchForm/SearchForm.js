@@ -1,3 +1,5 @@
+import { useState } from "react";
+import { useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
@@ -11,15 +13,19 @@ const SearchForm = () => {
     const dispatch = useDispatch();
     const navigate = useNavigate();
     const { handleSubmit, register, reset } = useForm();
-    let movies = null;
+
+    const [searchValue, setSearchValue] = useState([]);
 
     const submit = async (value) => {
-        const data = await SearchServive.getSearch(value.search).then(({ data }) => data.results);
-        movies = data;
-        dispatch(moviesActions.addResults({ movies }))
+        await SearchServive.getSearch(value).then(({ data }) => setSearchValue(data.results));
         navigate("/home/searchList");
         reset();
     };
+
+    useEffect(() => {
+        searchValue &&
+            dispatch(moviesActions.addResults(searchValue));
+    }, [searchValue, dispatch, navigate]);
 
     return (
         <div >

@@ -26,13 +26,13 @@ const getById = createAsyncThunk(
     }
 )
 
-const addResults = createAsyncThunk(
-    "moviesSlice/addResults",
-    async ({ movies }) => {
-        const data = await { movies };
-        return data
-    }
-)
+// const addResults = createAsyncThunk(
+//     "moviesSlice/addResults",
+//     async ({ movies }) => {
+//         const data = { movies };
+//         return data
+//     }
+// )
 
 const getPopularMovies = createAsyncThunk(
     "moviesSlice/getPopularMovies",
@@ -46,15 +46,19 @@ const movieSlice = createSlice({
     name: "moviesSlice",
     initialState,
     reducers: {
+        addResults: (state, action)=>{
+            state.searchResults = action.payload;
+            console.log(state.searchResults);
+        }
     },
     extraReducers: (builder) => {
         builder
             .addCase(getAll.fulfilled, (state, action) => {
                 state.movies = action.payload;
             })
-            .addCase(addResults.fulfilled, (state, action) => {
-                state.searchResults = action.payload.movies;
-            })
+            // .addCase(addResults.fulfilled, (state, action) => {
+            //     state.searchResults = action.payload.movies;
+            // })
             .addCase(getById.fulfilled, (state, action) => {
                 state.movieById = action.payload
             })
@@ -64,14 +68,13 @@ const movieSlice = createSlice({
     }
 });
 
-const { reducer: moviesReducer, actions } = movieSlice;
+const { reducer: moviesReducer, actions: {addResults} } = movieSlice;
 
 const moviesActions = {
     getAll,
     addResults,
     getById,
-    getPopularMovies,
-    actions
+    getPopularMovies
 };
 export { moviesReducer, moviesActions }
 
