@@ -64,14 +64,14 @@ const movieSlice = createSlice({
     }
 });
 
-const { reducer: moviesReducer, actions: { } } = movieSlice;
+const { reducer: moviesReducer, actions } = movieSlice;
 
 const moviesActions = {
     getAll,
     addResults,
     getById,
-    getPopularMovies
-
+    getPopularMovies,
+    actions
 };
 export { moviesReducer, moviesActions }
 
