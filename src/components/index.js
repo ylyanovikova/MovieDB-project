@@ -5,7 +5,7 @@ export * from "./Loading/Loading";
 export * from "./MovieCard/MoviesListCard";
 export * from "./MovieInfo/MovieInfo";
 export * from "./MoviesByGenre/MoviesByGenre";
-export * from "./MovieList/MoviesList";
+export * from "./MoviesList/MoviesList";
 export * from "./PopularMovies/PopularMovies";
 export * from "./PosterPreview/PosterPreview";
 export * from "./SearchForm/SearchForm";
