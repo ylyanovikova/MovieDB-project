@@ -6,7 +6,7 @@ import css from "./PosterPreview.module.css";
 
 const PosterPreview = ({ poster, title, movie }) => {
 
-    const [posterImg, setPosterImg] = useState(null)
+    const [posterImg, setPosterImg] = useState(null);
     useEffect(() => {
         fetch(`https://image.tmdb.org/t/p/w500${poster}`).then(data => setPosterImg(data.url));
     }, [poster]);
