@@ -8,7 +8,9 @@ const PosterPreview = ({ poster, title, movie }) => {
 
     const [posterImg, setPosterImg] = useState(null);
     useEffect(() => {
-        fetch(`https://image.tmdb.org/t/p/w500${poster}`).then(data => setPosterImg(data.url));
+        if(poster){
+            fetch(`https://image.tmdb.org/t/p/w500${poster}`).then(data => setPosterImg(data.url));
+        }
     }, [poster]);
 
     return (
