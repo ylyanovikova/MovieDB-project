@@ -1,9 +1,0 @@
-.movieCards{
-    display: flex;
-    flex-wrap: wrap;
-    box-sizing: border-box;
-    padding: 50px;
-    justify-content: center;
-    row-gap: 30px;
-    column-gap: 30px;
-}
