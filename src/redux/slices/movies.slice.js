@@ -48,7 +48,6 @@ const movieSlice = createSlice({
     reducers: {
         addResults: (state, action)=>{
             state.searchResults = action.payload;
-            console.log(state.searchResults);
         }
     },
     extraReducers: (builder) => {

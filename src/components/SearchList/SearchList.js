@@ -8,7 +8,7 @@ const SearchList = () => {
 
     return (
         <div className={css.movieCards}>
-            {searchResults && searchResults.map(movie => <MoviesListCard movie={movie} />)}
+            {searchResults && searchResults.map(movie => <MoviesListCard key={movie.id} movie={movie} />)}
         </div>
     )
 }
