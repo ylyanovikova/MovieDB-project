@@ -12,7 +12,7 @@ const PopularMovies = () => {
 
     useEffect(() => {
         dispatch(moviesActions.getPopularMovies());
-    }, []);
+    }, [dispatch]);
 
     return (
         <div className={css.movieCards}>

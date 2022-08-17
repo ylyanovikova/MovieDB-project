@@ -22,7 +22,7 @@ const MovieInfo = () => {
             dispatch(moviesActions.getById({ id }));
             setChosenMovie(mov);
         }
-    }, [id]);
+    }, [id, dispatch, mov, movie, state]);
 
     const { title, vote_average, vote_count, genre_ids, overview, release_date } = chosenMovie;
 

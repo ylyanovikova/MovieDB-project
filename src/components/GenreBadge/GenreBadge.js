@@ -15,7 +15,7 @@ const GenreBadge = ({ genresIds }) => {
     }, [dispatch]);
 
     const movieGenres = [];
-    genresIds.forEach(id => genres.filter((genre) => { if (genre.id === id) { movieGenres.push(genre) } }));
+    genresIds.forEach(id => genres.filter((genre)=> (genre.id === id) && movieGenres.push(genre)));
 
     return (
         <div className={css.badgeContainer}>

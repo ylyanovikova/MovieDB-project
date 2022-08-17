@@ -22,7 +22,7 @@ const MoviesListCard = ({ movie }) => {
             dispatch(moviesActions.getById({ id }));
             setMov(movieById)
         }
-    }, [id]);
+    }, [id, dispatch, movie, movieById]);
 
     return (
         <div className={css.movieCard}>

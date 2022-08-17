@@ -1,12 +1,9 @@
 import React from "react";
-import { useState } from "react";
 import ReactStars from "react-rating-stars-component";
 
 import css from "./StarRating.module.css";
 
 const StarRating = ({ average, votes }) => {
-
-    const [value, setValue] = useState(null);
 
     const stars = {
         size: 40,
@@ -14,10 +11,7 @@ const StarRating = ({ average, votes }) => {
         isHalf: false,
         value: 10,
         color: "silver",
-        activeColor: "orange",
-        onChange: (newValue = average) => {
-            setValue(newValue)
-        }
+        activeColor: "orange"
     };
 
     return (
