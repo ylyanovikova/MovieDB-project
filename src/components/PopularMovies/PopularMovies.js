@@ -1,9 +1,8 @@
 import { useEffect } from "react";
-import { useSelector } from "react-redux";
-import { useDispatch } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 
 import { moviesActions } from "../../redux";
-import { MoviesListCard } from "../MovieCard/MoviesListCard";
+import { MoviesListCard, Loading } from "..";
 import css from "./PopularMovies.module.css";
 
 const PopularMovies = () => {
@@ -16,7 +15,7 @@ const PopularMovies = () => {
 
     return (
         <div className={css.movieCards}>
-            {popular && popular.map(movie => <MoviesListCard key={movie.id} movie={movie} />)}
+            {popular ? popular.map(movie => <MoviesListCard key={movie.id} movie={movie} />): <Loading/>}
         </div>
     )
 };

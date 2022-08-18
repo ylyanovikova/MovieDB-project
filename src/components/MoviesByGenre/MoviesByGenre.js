@@ -1,11 +1,8 @@
-import { useEffect } from "react";
-import { useState } from "react";
-import { useParams } from "react-router-dom";
-import { useSearchParams } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { useParams, useSearchParams } from "react-router-dom";
 
 import { moviesService } from "../../services";
-import { Loading } from "../Loading/Loading";
-import { MoviesListCard } from "../MovieCard/MoviesListCard";
+import { Loading, MoviesListCard } from "..";
 import css from "./MoviesByGenre.module.css";
 
 const MoviesByGenre = () => {
@@ -37,23 +34,17 @@ const MoviesByGenre = () => {
         setQuery(queryObj)
     }
 
-    if(movies){
-        return (
-            <div id="topToGenres">
-                <div className={css.movieCards}>
-                    {movies.map(movie => <MoviesListCard key={movie.id} movie={movie} />)}
-                </div>
-                <div className={css.navButtons}>
-                    <a href="#topToGenres"><button onClick={() => prevPage()}>Previous page</button></a>
-                    <a href="#topToGenres"><button onClick={() => nextPage()}>Next page</button></a>
-                </div>
+    return (
+        <div id="topToGenres">
+            <div className={css.movieCards}>
+                {movies.map(movie => <MoviesListCard key={movie.id} movie={movie} />)}
             </div>
-        )
-    }else{
-        return(
-            <Loading/>
-        )
-    }
+            <div className={css.navButtons}>
+                <a href="#topToGenres"><button onClick={() => prevPage()}>Previous page</button></a>
+                <a href="#topToGenres"><button onClick={() => nextPage()}>Next page</button></a>
+            </div>
+        </div>
+    )
 }
 
 export { MoviesByGenre }

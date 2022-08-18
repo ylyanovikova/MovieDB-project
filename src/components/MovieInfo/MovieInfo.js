@@ -1,5 +1,4 @@
-import { useState } from "react";
-import { useEffect } from "react";
+import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useLocation, useParams } from "react-router-dom";
 
@@ -12,6 +11,7 @@ const MovieInfo = () => {
     const { id } = useParams();
     const { state } = useLocation();
     const dispatch = useDispatch();
+
     const { movie, posterImg } = state;
     const [chosenMovie, setChosenMovie] = useState(movie || null);
 

@@ -37,9 +37,9 @@ const MoviesList = () => {
         setQuery(queryObj)
     }
 
-    if (movies) {
-        return (
-            <div id="top">
+    return (
+        <div>
+            {movies ? <div id="top">
                 <div className={css.movieCards}>
                     {movies.map(movie => <MoviesListCard key={movie.id} movie={movie} />)}
                 </div>
@@ -47,14 +47,9 @@ const MoviesList = () => {
                     <a href="#top"><button onClick={() => prevPage()}>Previous page</button></a>
                     <a href="#top"><button onClick={() => nextPage()}>Next page</button></a>
                 </div>
-            </div>
-        )
-    } else {
-        return (
-            <Loading />
-        )
-    }
-
+            </div> : <Loading />}
+        </div>
+    )
 };
 
 export { MoviesList }

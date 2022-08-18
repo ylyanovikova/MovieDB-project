@@ -1,10 +1,8 @@
-import { useEffect } from "react";
-import { useState } from "react";
-import { useDispatch } from "react-redux";
-import { useSelector } from "react-redux";
+import { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 
-import { PosterPreview, Loading } from "..";
+import { PosterPreview } from "..";
 import { moviesActions } from "../../redux";
 import css from './MovieListCard.module.css';
 
@@ -26,7 +24,7 @@ const MoviesListCard = ({ movie }) => {
 
     return (
         <div className={css.movieCard}>
-            {movie ? <PosterPreview poster={mov.poster_path} title={mov.original_title} movie={movie} /> : <Loading />}
+            {movie && <PosterPreview poster={mov.poster_path} title={mov.original_title} movie={movie} />}
         </div>
     )
 };
