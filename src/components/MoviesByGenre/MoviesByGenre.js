@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { useParams, useSearchParams } from "react-router-dom";
 
 import { moviesService } from "../../services";
-import { Loading, MoviesListCard } from "..";
+import { MoviesListCard } from "..";
 import css from "./MoviesByGenre.module.css";
 
 const MoviesByGenre = () => {
